@@ -5,17 +5,28 @@ class Api::ListsController < ApiController
   def index
     user = my_user
     lists = user.lists.all
-      render json: user.lists, each_serializer: ListSerializer
+    render json: user.lists, each_serializer: ListSerializer
   end
 
   def create
-    user = my_user
-    list = user.lists.new(list_params)
+    @user = User.find(params[:user_id])
+    list = @user.lists.new(list_params)
 
     if list.save
       render json: list
     else
       render json: { errors: list.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    begin
+      @user = User.find(params[:user_id])
+      list = @user.lists.find(params[:id])
+      list.destroy
+      render json: {}, status: :no_content
+    rescue ActiveRecord::RecordNotFound
+      render json:  {}, status: :not_found
     end
   end
 
