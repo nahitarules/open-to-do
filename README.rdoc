@@ -1,28 +1,29 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Open to do is an externally usable API for a basic to-do list application.
 
-Things you may want to cover:
+== Built With
 
-* Ruby version
+* Ruby 2.4.1
 
-* System dependencies
+* Rails 4.2.8
 
-* Configuration
+== Project Objectives
 
-* Database creation
+* It should return JSON representations of users, lists, and items.
 
-* Database initialization
+* User authentication from the command line.
 
-* How to run the test suite
+* It should create new users, lists, and items from the command line.
 
-* Services (job queues, cache servers, search engines, etc.)
+* It should remove users and lists from the command line.
 
-* Deployment instructions
+* It should update list and item attributes from the command line.
 
-* ...
+== How to run it locally
 
+1. Fork this repo
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+2. Clone it locally
+
+3. run bundle install
